@@ -1,2 +1,29 @@
 <h1>factura</h1>
 
+<p *ngIf="siHay" > no hay facturas registradas</p>
+
+<p>nombre</p>
+
+<input type="text" [(ngModel)]="nombre"> 
+
+<p>precio</p>
+
+<input type="text" [(ngModel)]="precio"> 
+
+
+
+<br>
+
+<button (click)="guardarFactura()">  guardar factura </button>
+
+<div *ngIf="!siHay" >
+    <div *ngFor= "let factura of facturas; let i = index">
+        <br>
+        <p>numero de factura: {{factura.id}} </p>
+        <p>fecha y hora {{factura.fecha | date:"short"}} </p>
+        <br>
+        <p *ngIf="factura.items.length <= 0"> no hay productos agregados</p>
+        <button (click)="agregarItem(i)" >  agregar producto </button>
+
+    </div>
+</div>
