@@ -1,6 +1,6 @@
-import { item } from "./item.model";
+import { Item } from "./item.model";
 
 
 export class Factura{
-    constructor(public id: number, public fecha : Date, public items:item[]) {}
+    constructor(public id: number, public fecha : Date, public items:Item[]) {}
 }

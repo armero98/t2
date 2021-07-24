@@ -1,30 +1,38 @@
 import { Component, OnInit } from '@angular/core';
+import { Factura } from './factura.model';
+import { Item } from './item.model';
 
 @Component({
   selector: 'app-factura',
   templateUrl: './factura.component.html',
-  styleUrls: ['./factura.component.css']
-})
+  styleUrls: ['./factura.component.css']}
+  )
+
 export class FacturaComponent implements OnInit {
+  ngOnInit(): void {} 
+  constructor(){}
 
-  ngOnInit() {
-  }
+  facturas : Factura [] = []
 
-  title = 'taller2';
+  title = 'sistema de factura'
   nombreProducto=""
-  arrayItems = []
-  arrayFacturas = []
-  deshabilitado = true
   saveFactura = true
   siHay = true
+  borrar = false
   nombre = "";
   precio = 0;
+  
 
 
-    agregarItem(){ 
+    agregarItem(id:number){ 
       try {
-        if(this.nombre != ""){
-        this.agregarItem.push(cajaitem)
+        if(this.nombre != "" && this.precio != 0){
+          let item = new Item (this.nombre, this.precio, id)
+          this.facturas[id].items.push(item) 
+          this.nombre = ""
+          this.precio = 0
+        }
+        return
       }catch (e) {
         console.log('no hay item para agregar=>', e)
       }
@@ -32,12 +40,23 @@ export class FacturaComponent implements OnInit {
 
     guardarFactura(){ 
       try {
-        if(this.arrayItems.length > 1){
-          this.saveFactura =! this.saveFactura
-          this.arrayFacturas.push;}
-        }catch (e) {
-        console.log('no hay factura que guardar', e)
-      } 
+        if(this.facturas.length > 1){
+          this.saveFactura =! this.saveFactura}
+          let factura = new Factura (this.facturas.length + 1, new Date(), [])
+          this.facturas.push(factura)
+          return
+      }catch (e) {
+        console.log('no hay registro en la factura para guardar', e)
+      }
+    }
+
+    borrarFactura(){
+      try {
+        if( this.borrar =! false ){}
+        this.facturas.indexOf
+      } catch (e) {
+        
+      }
     }
 
  
