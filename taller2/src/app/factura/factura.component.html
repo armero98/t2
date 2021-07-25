@@ -4,13 +4,13 @@
 
 <button (click)="guardarFactura()">  guardar factura </button>
 
-<div *ngIf="!siHay" >
+<div>
     <div *ngFor="let factura of facturas; let i = index">
         <br>
         <p>numero de factura: {{factura.id}} </p>
         <p>fecha y hora {{factura.fecha | date:"short"}} </p>
         <br>
-        <p *ngIf="factura.items.length <= 0"> no hay productos agregados</p>
+        <p *ngIf="factura.items.length<= 0"> no hay productos agregados</p>
         <button (click)="agregarItem(i)" >  agregar producto </button>
         <p>nombre</p>
         <input type="text" [(ngModel)]="nombre"> 

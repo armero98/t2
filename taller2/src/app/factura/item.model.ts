@@ -1,3 +1,3 @@
 export class Item{
-    constructor(public nombre: string, public precio : string, public idfactura:number) {}
+    constructor(public nombre: string, public precio : number, public idfactura:number) {}
 }

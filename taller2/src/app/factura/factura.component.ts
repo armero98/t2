@@ -46,7 +46,7 @@ export class FacturaComponent implements OnInit {
           this.facturas.push(factura)
           return
       }catch (e) {
-        console.log('no hay registro en la factura para guardar', e)
+        alert('no hay registro en la factura para guardar')
       }
     }
 
@@ -55,7 +55,7 @@ export class FacturaComponent implements OnInit {
         if( this.borrar =! false ){}
         this.facturas.indexOf
       } catch (e) {
-        
+        alert('el registro seleccionado no existe')
       }
     }
 
